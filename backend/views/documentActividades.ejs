@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <hr>
+    <h2> Módulo de actividades </h2>
+    <hr>
+
+    <h3> Registrar actividades </h3>
+
+    <table>
+        <tr>
+            <td> Numero </td>
+            <td> 8 </td>
+        </tr>
+        <tr>
+            <td> Nombre del servicio </td>
+            <td> Registrar actividades </td>
+        </tr>
+        <tr>
+            <td> URL </td>
+            <td> /actividades/registrar </td>
+        </tr>
+        <tr>
+            <td> Descripción </td>
+            <td> Permite registrar actividades en la base de datos </td>
+        </tr>
+        <tr>
+            <td> Verbo HTTP </td>
+            <td> POST </td>
+        </tr>
+        <tr>
+            <td> Header </td>
+            <td> token: token </td>
+        </tr>
+        <tr>
+            <td> Usuario </td>
+            <td> Coordinador, seguimiento </td>
+        </tr>
+        <tr>
+            <td> Petición body-form-data </td>
+            <td>
+                
+            Json: {
+                "fecha_inicio": "2024-02-29",
+                "fecha_fin": "2024-07-29",
+                "instructor": 2,
+                "horario": 2,
+
+                "tipo": 1,
+                "solicitud": 1
+            }
+
+            </td>
+        </tr>
+        <tr>
+            <td> Respuesta Json </td>
+            <td>
+                Correcto: 
+                Json: {
+                    Status: 200,
+                    Message: "Actividad registrada correctamente"
+                },
+
+                Incorrecto: 
+                Json: {
+                    Status: 403,
+                    Message: "Error al registrar la actividad"
+                },
+
+                Error: 
+                Json: {
+                    Status: 500,
+                    Message: 'Error del servidor' + error
+                }
+            </td>
+        </tr>
+        <tr>
+            <td> Desarrollador </td>
+            <td> Alejandro David Pasaje Quinayas </td>
+        </tr>
+    </table>
+
+    <hr>
+
+    <h3> Listar actividades </h3>
+
+    <table>
+        <tr>
+            <td> Numero </td>
+            <td> 9 </td>
+        </tr>
+        <tr>
+            <td> Nombre del servicio </td>
+            <td> Listar actividades </td>
+        </tr>
+        <tr>
+            <td> URL </td>
+            <td> /actividades/listar </td>
+        </tr>
+        <tr>
+            <td> Descripción </td>
+            <td> Permite listar las actividades que existen en la base de datos </td>
+        </tr>
+        <tr>
+            <td> Verbo HTTP </td>
+            <td> GET </td>
+        </tr>
+        <tr>
+            <td> Header </td>
+            <td> token: token </td>
+        </tr>
+        <tr>
+            <td> Uusario </td>
+            <td> Coordinador, seguimiento </td>
+        </tr>
+        <tr>
+            <td> Petición body-form-data </td>
+            <td> Null </td>
+        </tr>
+        <tr>
+            <td> Respuesta Json </td>
+            <td>
+                Correcto: 
+                Json: {
+                    Status: 200,
+                    Message: 
+                        {
+                            "id_actividad": 5,
+                            "estado": "Activo",
+                            "fecha_inicio": "2024-02-29T05:00:00.000Z",
+                            "fecha_fin": "2024-07-29T05:00:00.000Z",
+                            "instructor": 2,
+                            "horario": 2,
+            
+                            "tipo": "Formacion",
+                            "solicitud": "Solicitado"
+                        }
+                },
+
+                Incorrecto: 
+                Json: {
+                    Status: 404,
+                    Message: "No hay actividades registradas"
+                },
+
+                Error: 
+                Json: {
+                    Status: 500,
+                    Message: 'Error del servidor' + error
+                }
+            </td>
+        </tr>
+        <tr>
+            <td> Desarrollador </td>
+            <td> Alejandro David Pasaje Quinayas </td>
+        </tr>
+    </table>
+
+    <hr>
+
+    <h3> Actualizar actividades </h3>
+
+    <table>
+        <tr>
+            <td> Numero </td>
+            <td> 10 </td>
+        </tr>
+        <tr>
+            <td> Nombre del servicio </td>
+            <td> Actualizar actividades </td>
+        </tr>
+        <tr>
+            <td> URL </td>
+            <td> /actividades/actualizar/1 </td>
+        </tr>
+        <tr>
+            <td> Descripción </td>
+            <td> Permite actualizar las actividades que existen en la base de datos </td>
+        </tr>
+        <tr>
+            <td> Verbo HTTP </td>
+            <td> PUT </td>
+        </tr>
+        <tr>
+            <td> Header </td>
+            <td> token: token </td>
+        </tr>
+        <tr>
+            <td> Uusario </td>
+            <td> Coordinador, seguimiento </td>
+        </tr>
+        <tr>
+            <td> Petición body-form-data </td>
+            <td>
+                Json: {
+                    "tipo": 2
+                }
+            </td>
+        </tr>
+        <tr>
+            <td> Respuesta Json </td>
+            <td>
+                Correcto: 
+                Json: {
+                    Status: 200,
+                    Message: "Actividad actualizada correctamente"
+                },
+
+                Incorrecto: 
+                Json: {
+                    Status: 403,
+                    Message: "Error al actualizar la actividad"
+                },
+
+                Error: 
+                Json: {
+                    Status: 500,
+                    Message: 'Error del servidor' + error
+                }
+            </td>
+        </tr>
+        <tr>
+            <td> Desarrollador </td>
+            <td> Alejandro David Pasaje Quinayas </td>
+        </tr>
+    </table>
+
+    <hr>
+
+    <h3> Desactivar actividades </h3>
+
+    <table>
+        <tr>
+            <td> Numero </td>
+            <td> 11 </td>
+        </tr>
+        <tr>
+            <td> Nombre del servicio </td>
+            <td> Desactivar actividades </td>
+        </tr>
+        <tr>
+            <td> URL </td>
+            <td> /actividades/desactivar/1 </td>
+        </tr>
+        <tr>
+            <td> Descripción </td>
+            <td> Permite desactivar las actividades que existen en la base de datos </td>
+        </tr>
+        <tr>
+            <td> Verbo HTTP </td>
+            <td> PUT </td>
+        </tr>
+        <tr>
+            <td> Header </td>
+            <td> token: token </td>
+        </tr>
+        <tr>
+            <td> Uusario </td>
+            <td> Coordinador, seguimiento </td>
+        </tr>
+        <tr>
+            <td> Petición body-form-data </td>
+            <td> Null </td>
+        </tr>
+        <tr>
+            <td> Respuesta Json </td>
+            <td>
+                Correcto: 
+                Json: {
+                    Status: 200,
+                    Message: "Actividad desactivada correctamente"
+                },
+
+                Incorrecto: 
+                Json: {
+                    Status: 403,
+                    Message: "Error al desactivar la actividad"
+                },
+
+                Error: 
+                Json: {
+                    Status: 500,
+                    Message: 'Error del servidor' + error
+                }
+            </td>
+        </tr>
+        <tr>
+            <td> Desarrollador </td>
+            <td> Alejandro David Pasaje Quinayas </td>
+        </tr>
+    </table>
+
+    <hr>
+
+    <h3> Activar actividades </h3>
+
+    <table>
+        <tr>
+            <td> Numero </td>
+            <td> 12 </td>
+        </tr>
+        <tr>
+            <td> Nombre del servicio </td>
+            <td> Activar actividades </td>
+        </tr>
+        <tr>
+            <td> URL </td>
+            <td> /actividades/activar/1 </td>
+        </tr>
+        <tr>
+            <td> Descripción </td>
+            <td> Permite activar las actividades que existen en la base de datos </td>
+        </tr>
+        <tr>
+            <td> Verbo HTTP </td>
+            <td> PUT </td>
+        </tr>
+        <tr>
+            <td> Header </td>
+            <td> token: token </td>
+        </tr>
+        <tr>
+            <td> Uusario </td>
+            <td> Coordinador, seguimiento </td>
+        </tr>
+        <tr>
+            <td> Petición body-form-data </td>
+            <td> Null </td>
+        </tr>
+        <tr>
+            <td> Respuesta Json </td>
+            <td>
+                Correcto: 
+                Json: {
+                    Status: 200,
+                    Message: "Actividad activada correctamente"
+                },
+
+                Incorrecto: 
+                Json: {
+                    Status: 403,
+                    Message: "Error al activar la actividad"
+                },
+
+                Error: 
+                Json: {
+                    Status: 500,
+                    Message: 'Error del servidor' + error
+                }
+            </td>
+        </tr>
+        <tr>
+            <td> Desarrollador </td>
+            <td> Alejandro David Pasaje Quinayas </td>
+        </tr>
+    </table>
+    
+</body>
+</html>

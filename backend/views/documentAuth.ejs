@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <hr>
+    <h2> Módulo de autenticación </h2>
+    <hr>
+
+    <h3> Validación de usuario </h3>
+
+    <table>
+        <tr>
+            <td> Numero </td>
+            <td> 1 </td>
+        </tr>
+        <tr>
+            <td> Nombre del servicio </td>
+            <td> Validación usuario </td>
+        </tr>
+        <tr>
+            <td> URL </td>
+            <td> /validacion </td>
+        </tr>
+        <tr>
+            <td> Descripción </td>
+            <td> Permite validar si un usuario que quiera ingresar al sistema exista en la base de datos </td>
+        </tr>
+        <tr>
+            <td> Verbo HTTP </td>
+            <td> POST </td>
+        </tr>
+        <tr>
+            <td> Header </td>
+            <td> Null </td>
+        </tr>
+        <tr>
+            <td> Usuario </td>
+            <td> Instructores, aprendices, coordinador, lideres, seguimientos  </td>
+        </tr>
+        <tr>
+            <td> Petición body-form-data </td>
+            <td>
+                Json: 
+                {
+                    "correo": "admin@gmail.com",
+                    "password": "123"
+                }
+            </td>
+        </tr>
+        <tr>
+            <td> Respuesta Json </td>
+            <td>
+                Correcto: 
+                Status: 200
+                Json: 
+                {
+                    Message: 'User' + usuer, 'token' + token
+                },
+
+                Incorrecto:
+                Status: 404
+                Json:
+                {
+                    Message: 'Correo o contraseña incorrectos'
+                },
+
+                Error:
+                Status: 500
+                Json: 
+                {
+                    Message: 'Error del servidor' + error
+                }
+            </td>
+        </tr>
+        <tr>
+            <td> Desarrollador </td>
+            <td> Alejandro David Pasaje Quinayas </td>
+        </tr>
+    </table>
+
+    <hr>
+
+    <h3> Requerimiento validar token </h3>
+    
+    <table>
+        <tr>
+            <td> Numero </td>
+            <td> 2 </td>
+        </tr>
+        <tr>
+            <td> Nombre del servicio </td>
+            <td> Validar token </td>
+        </tr>
+        <tr>
+            <td> URL </td>
+            <td> Null </td>
+        </tr>
+        <tr>
+            <td> Descripción </td>
+            <td> Permite validar si existe el token de usuario proporcionado cuando un usuario inicia sesión al sistema </td>
+        </tr>
+        <tr>
+            <td> Verbo HTTP </td>
+            <td> Null </td>
+        </tr>
+        <tr>
+            <td> Header </td>
+            <td> Token: token </td>
+        </tr>
+        <tr>
+            <td> Usuario </td>
+            <td> Instructores, aprendices, coordinador, lideres, seguimientos  </td>
+        </tr>
+        <tr>
+            <td> Petición body-form-data </td>
+            <td> Null </td>
+        </tr>
+        <tr>
+            <td> Respuesta Json </td>
+            <td>
+                Correcto: 
+                Next(),
+
+                Incorrecto: 
+                Status: 403
+                Json: 
+                {
+                    Message: 'Token requerido o token es obligatorio'
+                },
+
+                Error:
+                Status: 500
+                Json: 
+                {
+                    Message: 'Error del servidor' + error
+                }
+            </td>
+        </tr>
+        <tr>
+            <td> Desarrollador </td>
+            <td> Alejandro David Pasaje Quinayas </td>
+        </tr>
+    </table>
+    
+</body>
+</html>

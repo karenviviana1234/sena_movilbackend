@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <hr>
+    <h2> Módulo de bitácoras </h2>
+    <hr>
+
+    <h3> Registro de bitácpras </h3>
+
+    <table>
+
+        <tr>
+            <td> Numero </td>
+            <td> 3 </td>
+        </tr>
+        <tr>
+            <td> Nombre del servicio </td>
+            <td> Registro de bitácoras </td>
+        </tr>
+        <tr>
+            <td> URL </td>
+            <td> /bitacoras/registrar </td>
+        </tr>
+        <tr>
+            <td> Descripción </td>
+            <td> Permite hacer registros de bitácoras en la base de datos </td>
+        </tr>
+        <tr>
+            <td> Verbo HTTP </td>
+            <td> POST </td>
+        </tr>
+        <tr>
+            <td> Header </td>
+            <td> Token: token </td>
+        </tr>
+        <tr>
+            <td> Uusario </td>
+            <td> Instructor </td>
+        </tr>
+        <tr>
+            <td> Peticion body-form-data </td>
+            <td>
+                Json: {
+                    "fecha": "2024-07-12",
+                    "bitacora": 1,
+                    "seguimiento": 3,
+                    "bitacoraPdf": "bitacora.pdf",
+                    "instructor": 10
+                }
+            </td>
+        </tr>
+        <tr>
+            <td> Respuesta Json </td>
+            <td>
+                Correcto: 
+                Json: {
+                    Status: 200,
+                    Message: "Bitacora registrada correctamente"
+                },
+
+                Incorrecto: 
+                Json: {
+                    Status: 403,
+                    Message: "Error al registrar bitacora"
+                },
+
+                Error:
+                Json: {
+                    Status: 500,
+                    Message: 'Error del servidor' + error
+                }
+            </td>
+        </tr>
+        <tr>
+            <td> Desarrollador </td>
+            <td> Alejandro David Pasaje Quinayas </td>
+        </tr>
+    </table>
+    
+    <hr>
+
+    <h3> Listar bitácoras </h3>
+
+    <table>
+        <tr>
+            <td> Numero </td>
+            <td> 4 </td>
+        </tr>
+        <tr>
+            <td> Nombre del servicio </td>
+            <td> Listar bitácoras </td>
+        </tr>
+        <tr>
+            <td> URL </td>
+            <td> /bitacoras/listar </td>
+        </tr>
+        <tr>
+            <td> Descripción </td>
+            <td> Permite listar las bitácoras existentes en la base de datos </td>
+        </tr>
+        <tr>
+            <td> Verbo HTTP </td>
+            <td> GET </td>
+        </tr>
+        <tr>
+            <td> Header </td>
+            <td> token: token </td>
+        </tr>
+        <tr>
+            <td> Uusario </td>
+            <td> Instructor </td>
+        </tr>
+        <tr>
+            <td> Petición body-form-data </td>
+            <td> Null </td>
+        </tr>
+        <tr>
+            <td> Respuesta Json </td>
+            <td>
+                Correcto: 
+                Json: {
+                    Status: 200,
+                    Message: 
+                    {
+                        "id_bitacora": 1,
+                        "fecha": "2023-05-03T05:00:00.000Z",
+                        "bitacora": "1",
+                        "seguimiento": 1,
+                        "pdf": null,
+                        "estado": "solicitud",
+                        "instructor": "Wilson Martinez Saldarriaga"
+                    }
+                },
+
+                Incorrecto: 
+                Json: {
+                    Status: 404,
+                    Message: "No hay bitacoras registradas"
+                },
+
+                Error: 
+                Json: {
+                    Status: 500,
+                    Message: 'Error del servidor' + error
+                }
+            </td>
+        </tr>
+        <tr>
+            <td> Desarrollador </td>
+            <td> Alejandro David Pasaje Quinayas </td>
+        </tr>
+    </table>
+
+    <hr>
+
+    <h3> Actualizar bitácoras </h3>
+
+    <table>
+        <tr>
+            <td> Numero </td>
+            <td> 5 </td>
+        </tr>
+        <tr>
+            <td> Nombre del servicio </td>
+            <td> Actualizar bitácoras </td>
+        </tr>
+        <tr>
+            <td> URL </td>
+            <td> /bitacoras/actualizar/1 </td>
+        </tr>
+        <tr>
+            <td> Descripción </td>
+            <td> Permite actualizar las bitácoras existentes en la base de datos </td>
+        </tr>
+        <tr>
+            <td> Verbo HTTP </td>
+            <td> PUT </td>
+        </tr>
+        <tr>
+            <td> Header </td>
+            <td> token: token </td>
+        </tr>
+        <tr>
+            <td> Uusario </td>
+            <td> Instructor </td>
+        </tr>
+        <tr>
+            <td> Petición body-form-data </td>
+            <td>
+                
+                Json: {
+                    "fecha": "2024-07-13"
+                }
+            </td>
+        </tr>
+        <tr>
+            <td> Respuesta Json </td>
+            <td>
+                Correcto: 
+                Json: {
+                    Status: 200,
+                    Message: "Bitacora actualizada correctamente"
+                },
+
+                Incorrecto: 
+                Json: {
+                    Status: 403,
+                    Message: "Error al actualizar bitacora"
+                },
+
+                Error: 
+                Json: {
+                    Status: 500,
+                    Message: 'Error del servidor' + error
+                }
+            </td>
+        </tr>
+        <tr>
+            <td> Desarrollador </td>
+            <td> Alejandro David Pasaje Quinayas </td>
+        </tr>
+    </table>
+
+    <hr>
+
+    <h3> Aprobar bitácora </h3>
+
+    <table>
+        <tr>
+            <td> Numero </td>
+            <td> 6 </td>
+        </tr>
+        <tr>
+            <td> Nombre del servicio </td>
+            <td> Aprobar bitácoras </td>
+        </tr>
+        <tr>
+            <td> URL </td>
+            <td> /bitacoras/aprobar/1 </td>
+        </tr>
+        <tr>
+            <td> Descripción </td>
+            <td> Permite cambiar el estado de las bitácoras existentes en la base de datos a aprobadas</td>
+        </tr>
+        <tr>
+            <td> Verbo HTTP </td>
+            <td> PUT </td>
+        </tr>
+        <tr>
+            <td> Header </td>
+            <td> token: token </td>
+        </tr>
+        <tr>
+            <td> Uusario </td>
+            <td> Instructor </td>
+        </tr>
+        <tr>
+            <td> Petición body-form-data </td>
+            <td> Null </td>
+        </tr>
+        <tr>
+            <td> Respuesta Json </td>
+            <td>
+                Correcto: 
+                Json: {
+                    Status: 200,
+                    Message: "Bitácora aprobada correctamente"
+                },
+
+                Incorrecto: 
+                Json: {
+                    Status: 403,
+                    Message: "Error al aprobar bitacora"
+                },
+
+                Error: 
+                Json: {
+                    Status: 500,
+                    Message: 'Error del servidor' + error
+                }
+            </td>
+        </tr>
+        <tr>
+            <td> Desarrollador </td>
+            <td> Alejandro David Pasaje Quinayas </td>
+        </tr>
+    </table>
+
+    <hr>
+
+    <h3> Rechazar bitácoras </h3>
+
+    <table>
+        <tr>
+            <td> Numero </td>
+            <td> 7 </td>
+        </tr>
+        <tr>
+            <td> Nombre del servicio </td>
+            <td> Rechazar bitácoras </td>
+        </tr>
+        <tr>
+            <td> URL </td>
+            <td> /bitacoras/rechazar/1 </td>
+        </tr>
+        <tr>
+            <td> Descripción </td>
+            <td> Permite cambiar el estado de las bitácoras existentes en la base de datos a rechazadas </td>
+        </tr>
+        <tr>
+            <td> Verbo HTTP </td>
+            <td> PUT </td>
+        </tr>
+        <tr>
+            <td> Header </td>
+            <td> token: token </td>
+        </tr>
+        <tr>
+            <td> Uusario </td>
+            <td> Instructor </td>
+        </tr>
+        <tr>
+            <td> Petición body-form-data </td>
+            <td> Null </td>
+        </tr>
+        <tr>
+            <td> Respuesta Json </td>
+            <td>
+                Correcto: 
+                Json: {
+                    Status: 200,
+                    Message: "Bitacora rechazada correctamente"
+                },
+
+                Incorrecto: 
+                Json: {
+                    Status: 403,
+                    Message: "Error al rechazar la bitacora"
+                },
+
+                Error: 
+                Json: {
+                    Status: 500,
+                    Message: 'Error del servidor' + error
+                }
+            </td>
+        </tr>
+        <tr>
+            <td> Desarrollador </td>
+            <td> Alejandro David Pasaje Quinayas </td>
+        </tr>
+    </table>
+    
+</body>
+</html>
